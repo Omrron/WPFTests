@@ -1,0 +1,153 @@
+﻿<Window x:Class="WPF_Buttons.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Buttons" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="#777777"
+        Title="Material Design Buttons" Height="675" Width="310">
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MyIconPack}">
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:MyIconPack}">
+                        <Viewbox>
+                            <Canvas Width="20" Height="20">
+                                <Path Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}}"                                  
+                                  Fill="{TemplateBinding Foreground}" />
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <Button Background="#60131313"
+                    Foreground="#777777"
+                    Content="{materialDesign:PackIcon Kind=ShapePolygonAdd,Size = 24}"
+                    ToolTip="happy"
+                    Width="103"/>
+            <Button Background="#60131313"
+                    Foreground="#777777"
+                    ToolTip="happy"
+                    Width="103">
+                <materialDesign:PackIcon Kind="eye" Foreground="MediumPurple"/>
+            </Button>
+            <Button Background="#60131313"
+                    Foreground="#777777"
+                    ToolTip="happy"
+                    Width="103">
+                <local:MyIconPack Kind="PointPlus"/>
+            </Button>
+        </WrapPanel>
+        <TextBlock Grid.Row="1" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+        <Viewbox Grid.Row="1" Height="200" Width=" 200" Margin="10">
+            <Canvas Width="200" Height="200">
+                <Path Data="M 40,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall1"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 65,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall2"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 90,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall3"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 115,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall4"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 140,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall5"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall1" Storyboard.TargetProperty="Y" From="0" To="-40" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall2" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.25" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall3" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.5" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall4" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.75" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall5" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:1" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
+            </Canvas>
+        </Viewbox>
+        <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+        <Viewbox Grid.Row="2" Height="200" Width=" 200" Margin="10">
+            <Canvas Width="200" Height="200">
+                <Path x:Name="animateddot1" Data="M 40,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+                <Path x:Name="animateddot2" Data="M 65,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+                <Path x:Name="animateddot3" Data="M 90,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard Duration="0:0:2" RepeatBehavior="Forever" AutoReverse="True">
+                                <DoubleAnimation Storyboard.TargetName="animateddot1" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:0.5" Duration="0:0:0.1" />
+                                <DoubleAnimation Storyboard.TargetName="animateddot2" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:1" Duration="0:0:0.1"/>
+                                <DoubleAnimation Storyboard.TargetName="animateddot3" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:1.5" Duration="0:0:0.1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
+            </Canvas>
+        </Viewbox>
+        <TextBlock Grid.Row="3" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+        <Viewbox Grid.Row="3" Height="200" Width=" 200" Margin="10">
+            <Canvas Width="200" Height="200">
+                <Path Data="M 40,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall6"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 65,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall7"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path Data="M 90,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                    <Path.RenderTransform>
+                        <TranslateTransform x:Name="animatedBall8"/>
+                    </Path.RenderTransform>
+                </Path>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard Duration="0:0:2" RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetName="animatedBall6" Storyboard.TargetProperty="Y" From="0" To="-20" Duration="0:0:0.3" AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall7" Storyboard.TargetProperty="Y" From="0" To="-20" BeginTime="0:0:0.25" Duration="0:0:0.3"  AutoReverse="True"/>
+                                <DoubleAnimation Storyboard.TargetName="animatedBall8" Storyboard.TargetProperty="Y" From="0" To="-20" BeginTime="0:0:0.5" Duration="0:0:0.3"  AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</Window>
