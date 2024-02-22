@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="WPF_Buttons.UserControls.Loaders.FiveDotWave"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Viewbox Height="200" Width=" 200" Margin="10">
+        <Canvas Width="200" Height="200">
+            <Path Data="M 40,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                <Path.RenderTransform>
+                    <TranslateTransform x:Name="animatedBall1"/>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M 65,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                <Path.RenderTransform>
+                    <TranslateTransform x:Name="animatedBall2"/>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M 90,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                <Path.RenderTransform>
+                    <TranslateTransform x:Name="animatedBall3"/>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M 115,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                <Path.RenderTransform>
+                    <TranslateTransform x:Name="animatedBall4"/>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M 140,120 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+                <Path.RenderTransform>
+                    <TranslateTransform x:Name="animatedBall5"/>
+                </Path.RenderTransform>
+            </Path>
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall1" Storyboard.TargetProperty="Y" From="0" To="-40" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall2" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.25" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall3" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.5" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall4" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:0.75" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall5" Storyboard.TargetProperty="Y" From="0" To="-40" BeginTime="0:0:1" Duration="0:0:0.5" RepeatBehavior="Forever" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
+        </Canvas>
+    </Viewbox>
+</UserControl>

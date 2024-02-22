@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WPF_Buttons.UserControls.Loaders.ThreeDotAppear"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Viewbox Height="200" Width=" 200">
+        <Canvas Width="200" Height="200">
+            <Path x:Name="animateddot1" Data="M 40,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+            <Path x:Name="animateddot2" Data="M 65,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+            <Path x:Name="animateddot3" Data="M 90,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b" Opacity="0"/>
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard Duration="0:0:2" RepeatBehavior="Forever" AutoReverse="True">
+                            <DoubleAnimation Storyboard.TargetName="animateddot1" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:0.5" Duration="0:0:0.1" />
+                            <DoubleAnimation Storyboard.TargetName="animateddot2" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:1" Duration="0:0:0.1"/>
+                            <DoubleAnimation Storyboard.TargetName="animateddot3" Storyboard.TargetProperty="Opacity" From="0" To="100" BeginTime="0:0:1.5" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
+        </Canvas>
+    </Viewbox>
+</UserControl>
