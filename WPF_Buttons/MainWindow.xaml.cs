@@ -10,6 +10,7 @@ namespace WPF_Buttons
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
     }
 }

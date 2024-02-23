@@ -59,7 +59,9 @@
         <loaders:FiveDotWave Grid.Row="1"/>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
         <loaders:ThreeDotAppear Grid.Row="2"/>
-        <TextBlock Grid.Row="3" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
-        <loaders:ThreeDotWave Grid.Row="3"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+            <loaders:ThreeDotWave Grid.Row="3" Foreground="#4b4b4b" Radius="10" TravelDistance="20" TravelTime="0:0:0.3" TimeBetweenRepetitions="0:0:0.6"/>
+        </StackPanel>
     </Grid>
 </Window>

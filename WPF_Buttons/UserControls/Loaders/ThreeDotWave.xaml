@@ -3,20 +3,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:WPF_Buttons.Converters"
              mc:Ignorable="d">
-    <Viewbox Height="200" Width=" 200">
-        <Canvas Width="200" Height="200">
-            <Path Data="M 40,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+    <UserControl.Resources>
+        <converters:NumberToNegative x:Key="IntToNegative"/>
+    </UserControl.Resources>
+    <Viewbox Width="75" Height="40">
+        <Canvas Width="75" Height="40">
+            <Path Data="{Binding BallPath1}" Fill="{Binding Foreground}">
                 <Path.RenderTransform>
                     <TranslateTransform x:Name="animatedBall6"/>
                 </Path.RenderTransform>
             </Path>
-            <Path Data="M 65,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+            <Path Data="{Binding BallPath2}" Fill="{Binding Foreground}">
                 <Path.RenderTransform>
                     <TranslateTransform x:Name="animatedBall7"/>
                 </Path.RenderTransform>
             </Path>
-            <Path Data="M 90,100 a 10,10 0 1 1 20,0 a 10,10 0 1 1 -20,0" Fill="#4b4b4b">
+            <Path Data="{Binding BallPath3}" Fill="{Binding Foreground}">
                 <Path.RenderTransform>
                     <TranslateTransform x:Name="animatedBall8"/>
                 </Path.RenderTransform>
@@ -24,10 +28,10 @@
             <Canvas.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
-                        <Storyboard Duration="0:0:2" RepeatBehavior="Forever">
-                            <DoubleAnimation Storyboard.TargetName="animatedBall6" Storyboard.TargetProperty="Y" From="0" To="-20" Duration="0:0:0.3" AutoReverse="True"/>
-                            <DoubleAnimation Storyboard.TargetName="animatedBall7" Storyboard.TargetProperty="Y" From="0" To="-20" BeginTime="0:0:0.25" Duration="0:0:0.3"  AutoReverse="True"/>
-                            <DoubleAnimation Storyboard.TargetName="animatedBall8" Storyboard.TargetProperty="Y" From="0" To="-20" BeginTime="0:0:0.5" Duration="0:0:0.3"  AutoReverse="True"/>
+                        <Storyboard Duration="{Binding AnimationLength}" RepeatBehavior="Forever">
+                            <DoubleAnimation Storyboard.TargetName="animatedBall6" Storyboard.TargetProperty="Y" From="0" To="{Binding TravelDistance, Converter={StaticResource IntToNegative}}" Duration="{Binding TravelTime}" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall7" Storyboard.TargetProperty="Y" From="0" To="{Binding TravelDistance, Converter={StaticResource IntToNegative}}" BeginTime="{Binding BeginTime1}" Duration="{Binding TravelTime}"  AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="animatedBall8" Storyboard.TargetProperty="Y" From="0" To="{Binding TravelDistance, Converter={StaticResource IntToNegative}}" BeginTime="{Binding BeginTime2}" Duration="{Binding TravelTime}"  AutoReverse="True"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
