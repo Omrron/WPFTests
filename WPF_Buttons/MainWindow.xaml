@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Buttons" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:loaders="clr-namespace:WPF_Buttons.UserControls.Loaders"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:loaders="clr-namespace:WPF_Buttons.UserControls.Loaders"
         mc:Ignorable="d"
         Background="#777777"
-        Title="Material Design Buttons" Height="675" Width="310">
+        Title="Material Design Buttons" Height="575" Width="auto">
     <Window.Resources>
         <Style TargetType="{x:Type local:MyIconPack}">
             <Setter Property="Template">
@@ -41,24 +42,24 @@
                     Content="{materialDesign:PackIcon Kind=ShapePolygonAdd,Size = 24}"
                     ToolTip="happy"
                     Width="103"/>
-            <Button Background="#60131313"
-                    Foreground="#777777"
-                    ToolTip="happy"
-                    Width="103">
-                <materialDesign:PackIcon Kind="eye" Foreground="MediumPurple"/>
-            </Button>
+            <DatePicker Width="103"/>
             <Button Background="#60131313"
                     Foreground="#777777"
                     Padding="5"
-                    ToolTip="happy"
+                    ToolTip="Go to other window"
+                    Command="{Binding SwitchWindowCommand}"
                     Width="103">
                 <local:MyIconPack Kind="PointPlus"/>
             </Button>
         </WrapPanel>
-        <TextBlock Grid.Row="1" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
-        <loaders:FiveDotWave Grid.Row="1"/>
-        <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
-        <loaders:ThreeDotAppear Grid.Row="2"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Grid.Row="1" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+            <loaders:FiveDotWave Grid.Row="1"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
+            <loaders:ThreeDotAppear Grid.Row="2"/>
+        </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <TextBlock VerticalAlignment="Center" Text="Loading" FontSize="24" FontFamily="Neue Haas Grotesk Text Pro ExtraLight"/>
             <loaders:ThreeDotWave Grid.Row="3" Foreground="#4b4b4b" Radius="10" TravelDistance="20" TravelTime="0:0:0.3" TimeBetweenRepetitions="0:0:0.6"/>

@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using WPF_Buttons.ViewModels;
+using WPF_Buttons.Windows;
 
 namespace WPF_Buttons
 {
@@ -10,7 +12,7 @@ namespace WPF_Buttons
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = new MainWindowViewModel();
         }
     }
 }
