@@ -3,11 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:WPF_Buttons.UserControls.ContentPresenters"
         xmlns:local="clr-namespace:WPF_Buttons.Windows"
         mc:Ignorable="d"
         Background="#777777"
         Title="ButtonTests" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="/WPF_Buttons;component/UserControls/ContentPresenters/ContentPresentersResources.xaml"/>
+    </Window.Resources>
     <Grid>
-        <CheckBox Content="This is a test"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:CheckableWrapper x:Name="CategoriesList"
+                                   ItemsSource="{Binding Categories}"
+                                   Margin="10">
+        </controls:CheckableWrapper>
+        <CheckBox Content="WOW" Grid.Row="1"/>
+        <CheckBox Content="Test" Grid.Row="2"/>
+        <Button Content="Hit it!" Grid.Row="3" Command="{Binding hitIt}"/>
     </Grid>
 </Window>
